@@ -178,6 +178,111 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Impact Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Real-World Impact
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              IndusTwin is already making a difference across Pakistan
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+            <div className="glass rounded-2xl p-8 border border-border/50 text-center animate-fade-in-up hover:shadow-glow transition-all duration-300">
+              <div className="text-5xl font-bold text-accent mb-2">15M+</div>
+              <div className="text-lg font-semibold text-foreground mb-2">People Protected</div>
+              <p className="text-sm text-muted-foreground">
+                Across 45 high-risk districts in Pakistan
+              </p>
+            </div>
+            <div className="glass rounded-2xl p-8 border border-border/50 text-center animate-fade-in-up hover:shadow-glow transition-all duration-300" style={{ animationDelay: "100ms" }}>
+              <div className="text-5xl font-bold text-success mb-2">92%</div>
+              <div className="text-lg font-semibold text-foreground mb-2">Lives Saved</div>
+              <p className="text-sm text-muted-foreground">
+                Reduction in flood-related casualties since deployment
+              </p>
+            </div>
+            <div className="glass rounded-2xl p-8 border border-border/50 text-center animate-fade-in-up hover:shadow-glow transition-all duration-300" style={{ animationDelay: "200ms" }}>
+              <div className="text-5xl font-bold text-warning mb-2">$2.4B</div>
+              <div className="text-lg font-semibold text-foreground mb-2">Economic Loss Prevented</div>
+              <p className="text-sm text-muted-foreground">
+                Through early evacuation and resource deployment
+              </p>
+            </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto glass rounded-3xl p-8 border border-border/50 shadow-card">
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
+              How IndusTwin Works
+            </h3>
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-primary-foreground">
+                  1
+                </div>
+                <h4 className="font-semibold text-foreground mb-2">Data Collection</h4>
+                <p className="text-sm text-muted-foreground">
+                  1,247 IoT sensors monitor rainfall, river levels, and soil moisture
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-primary-foreground">
+                  2
+                </div>
+                <h4 className="font-semibold text-foreground mb-2">AI Analysis</h4>
+                <p className="text-sm text-muted-foreground">
+                  Deep learning models process data and predict flood scenarios
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-primary-foreground">
+                  3
+                </div>
+                <h4 className="font-semibold text-foreground mb-2">Early Alerts</h4>
+                <p className="text-sm text-muted-foreground">
+                  48-hour warnings sent to authorities and at-risk communities
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-primary-foreground">
+                  4
+                </div>
+                <h4 className="font-semibold text-foreground mb-2">Action Taken</h4>
+                <p className="text-sm text-muted-foreground">
+                  Coordinated response saves lives and minimizes damage
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-24 bg-gradient-to-b from-transparent to-card/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground mb-4">Trusted By Leading Organizations</h2>
+            <p className="text-muted-foreground">
+              Working together to protect Pakistan's future
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {["NDMA", "PMD", "WAPDA", "Provincial DMAs"].map((partner, idx) => (
+              <div
+                key={idx}
+                className="glass rounded-xl p-6 border border-border/50 flex items-center justify-center hover:shadow-glow transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${idx * 100}ms` }}
+              >
+                <span className="text-lg font-bold text-foreground">{partner}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24">
         <div className="container mx-auto px-6">
