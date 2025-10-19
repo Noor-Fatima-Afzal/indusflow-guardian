@@ -88,36 +88,36 @@ const Analytics = () => {
       <Navigation />
 
       <div className="pt-20 pb-12">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           {/* Header */}
-          <div className="mb-8 animate-fade-in">
-            <h1 className="text-4xl font-bold text-foreground mb-2">
+          <div className="mb-6 sm:mb-8 animate-fade-in">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2">
               Analytics & Insights
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               AI-driven forecasts and historical trend analysis
             </p>
           </div>
 
           {/* Key Insights */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
             {keyInsights.map((insight, idx) => {
               const Icon = insight.icon;
               const TrendIcon = insight.trend === "up" ? TrendingUp : TrendingDown;
               return (
                 <div
                   key={idx}
-                  className="glass rounded-xl p-6 border border-border/50 animate-fade-in-up hover:shadow-glow transition-all duration-300"
+                  className="glass rounded-xl p-4 sm:p-6 border border-border/50 animate-fade-in-up hover:shadow-glow transition-all duration-300"
                   style={{ animationDelay: `${idx * 100}ms` }}
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <Icon className={`h-8 w-8 ${insight.color}`} />
-                    <TrendIcon className={`h-5 w-5 ${insight.color}`} />
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <Icon className={`h-6 w-6 sm:h-8 sm:w-8 ${insight.color}`} />
+                    <TrendIcon className={`h-4 w-4 sm:h-5 sm:w-5 ${insight.color}`} />
                   </div>
-                  <div className={`text-3xl font-bold mb-1 ${insight.color}`}>
+                  <div className={`text-2xl sm:text-3xl font-bold mb-1 ${insight.color}`}>
                     {insight.value}
                   </div>
-                  <div className="text-sm text-foreground font-medium mb-1">
+                  <div className="text-xs sm:text-sm text-foreground font-medium mb-1">
                     {insight.title}
                   </div>
                   <div className="text-xs text-muted-foreground">{insight.change}</div>
@@ -126,13 +126,14 @@ const Analytics = () => {
             })}
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {/* Rainfall Trends */}
-            <Card className="glass border-border/50 p-6 animate-fade-in">
-              <h3 className="text-xl font-bold text-foreground mb-6">
+            <Card className="glass border-border/50 p-4 sm:p-6 animate-fade-in">
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6">
                 Rainfall Trends (2024)
               </h3>
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={250}>
+
                 <AreaChart data={rainfallData}>
                   <defs>
                     <linearGradient id="rainfallGradient" x1="0" y1="0" x2="0" y2="1">
@@ -171,11 +172,12 @@ const Analytics = () => {
             </Card>
 
             {/* Flood History */}
-            <Card className="glass border-border/50 p-6 animate-fade-in">
-              <h3 className="text-xl font-bold text-foreground mb-6">
+            <Card className="glass border-border/50 p-4 sm:p-6 animate-fade-in">
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6">
                 Historical Flood Events
               </h3>
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={250}>
+
                 <BarChart data={floodHistoryData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" />
@@ -195,17 +197,18 @@ const Analytics = () => {
             </Card>
 
             {/* AI Forecast */}
-            <Card className="glass border-border/50 p-6 animate-fade-in lg:col-span-2">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-foreground">
+            <Card className="glass border-border/50 p-4 sm:p-6 animate-fade-in lg:col-span-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground">
                   7-Day AI Flood Risk Forecast
                 </h3>
+
                 <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20">
                   <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                   <span className="text-xs text-accent font-medium">Live Prediction</span>
                 </div>
               </div>
-              <ResponsiveContainer width="100%" height={350}>
+              <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={forecastData}>
                   <defs>
                     <linearGradient id="riskGradient" x1="0" y1="0" x2="0" y2="1">
@@ -242,37 +245,38 @@ const Analytics = () => {
                 </LineChart>
               </ResponsiveContainer>
 
-              <div className="mt-6 grid grid-cols-3 gap-4">
-                <div className="glass rounded-lg p-4 border border-destructive/30">
-                  <div className="text-2xl font-bold text-destructive mb-1">Day 5</div>
-                  <div className="text-sm text-foreground mb-2">Peak Risk</div>
+              <div className="mt-4 sm:mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                <div className="glass rounded-lg p-3 sm:p-4 border border-destructive/30">
+                  <div className="text-xl sm:text-2xl font-bold text-destructive mb-1">Day 5</div>
+                  <div className="text-xs sm:text-sm text-foreground mb-1 sm:mb-2">Peak Risk</div>
                   <div className="text-xs text-muted-foreground">85% flood probability</div>
                 </div>
-                <div className="glass rounded-lg p-4 border border-success/30">
-                  <div className="text-2xl font-bold text-success mb-1">98%</div>
-                  <div className="text-sm text-foreground mb-2">Initial Accuracy</div>
+                <div className="glass rounded-lg p-3 sm:p-4 border border-success/30">
+                  <div className="text-xl sm:text-2xl font-bold text-success mb-1">98%</div>
+                  <div className="text-xs sm:text-sm text-foreground mb-1 sm:mb-2">Initial Accuracy</div>
                   <div className="text-xs text-muted-foreground">High confidence window</div>
                 </div>
-                <div className="glass rounded-lg p-4 border border-accent/30">
-                  <div className="text-2xl font-bold text-accent mb-1">48hr</div>
-                  <div className="text-sm text-foreground mb-2">Warning Time</div>
+                <div className="glass rounded-lg p-3 sm:p-4 border border-accent/30">
+                  <div className="text-xl sm:text-2xl font-bold text-accent mb-1">48hr</div>
+                  <div className="text-xs sm:text-sm text-foreground mb-1 sm:mb-2">Warning Time</div>
                   <div className="text-xs text-muted-foreground">Before critical threshold</div>
                 </div>
               </div>
+
             </Card>
           </div>
 
           {/* AI Model Info */}
-          <div className="mt-8 glass rounded-2xl p-8 border border-border/50 shadow-elevation animate-fade-in">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
+          <div className="mt-6 sm:mt-8 glass rounded-2xl p-4 sm:p-6 lg:p-8 border border-border/50 shadow-elevation animate-fade-in">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4">
               AI-Powered Prediction Engine
             </h3>
-            <p className="text-muted-foreground mb-6 max-w-3xl">
+            <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-3xl">
               IndusTwin's deep learning model processes over 1,200 real-time data points including 
               satellite imagery, IoT sensor readings, meteorological forecasts, and historical patterns 
               to deliver 99.2% accurate flood predictions up to 7 days in advance.
             </p>
-            <div className="grid md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
               {[
                 { label: "Data Sources", value: "1,247" },
                 { label: "Models Trained", value: "156" },
@@ -281,13 +285,14 @@ const Analytics = () => {
               ].map((stat, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-lg bg-card border border-border/50"
+                  className="p-3 sm:p-4 rounded-lg bg-card border border-border/50"
                 >
-                  <div className="text-2xl font-bold text-accent mb-1">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-accent mb-1">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
                 </div>
               ))}
             </div>
+
           </div>
         </div>
       </div>

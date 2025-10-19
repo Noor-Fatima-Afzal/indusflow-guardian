@@ -50,54 +50,57 @@ const DecisionSupport = () => {
       <Navigation />
 
       <div className="pt-20 pb-12">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           {/* Header */}
-          <div className="mb-8 animate-fade-in">
-            <div className="flex items-center justify-between">
+          <div className="mb-6 sm:mb-8 animate-fade-in">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <h1 className="text-4xl font-bold text-foreground mb-2">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2">
                   Decision Support Dashboard
                 </h1>
-                <p className="text-muted-foreground">
+                <p className="text-sm sm:text-base text-muted-foreground">
                   Real-time coordination for NDMA and provincial authorities
                 </p>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 glass rounded-lg border border-accent/20">
+              <div className="flex items-center gap-2 px-3 sm:px-4 py-2 glass rounded-lg border border-accent/20 self-start sm:self-auto">
                 <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
-                <span className="text-sm text-foreground font-medium">System Active</span>
+                <span className="text-xs sm:text-sm text-foreground font-medium">System Active</span>
               </div>
             </div>
           </div>
 
+
           {/* Role Selector - Placeholder */}
-          <div className="mb-8 glass rounded-xl p-6 border border-border/50 animate-fade-in">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <Shield className="h-8 w-8 text-accent" />
+          <div className="mb-6 sm:mb-8 glass rounded-xl p-4 sm:p-6 border border-border/50 animate-fade-in">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <Shield className="h-6 w-6 sm:h-8 sm:w-8 text-accent flex-shrink-0" />
                 <div>
-                  <h3 className="text-lg font-bold text-foreground">Access Level</h3>
-                  <p className="text-sm text-muted-foreground">NDMA National Coordinator</p>
+                  <h3 className="text-base sm:text-lg font-bold text-foreground">Access Level</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">NDMA National Coordinator</p>
                 </div>
               </div>
-              <Button variant="glass" size="sm">
+              <Button variant="glass" size="sm" className="self-start sm:self-auto">
                 Switch Role
               </Button>
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+
+          <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {/* Active Alerts */}
-            <div className="lg:col-span-2 space-y-6">
-              <Card className="glass border-border/50 p-6 animate-fade-in shadow-card">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-foreground flex items-center">
-                    <Bell className="h-6 w-6 text-warning mr-2" />
+            <div className="lg:col-span-2 space-y-4 sm:space-y-6">
+              <Card className="glass border-border/50 p-4 sm:p-6 animate-fade-in shadow-card">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3">
+                  <h2 className="text-xl sm:text-2xl font-bold text-foreground flex items-center">
+                    <Bell className="h-5 w-5 sm:h-6 sm:w-6 text-warning mr-2" />
                     Active Alerts
                   </h2>
                   <Button variant="hero" size="sm">
                     Issue New Alert
                   </Button>
                 </div>
+
 
                 <div className="space-y-4">
                   {activeAlerts.map((alert) => (
@@ -148,11 +151,12 @@ const DecisionSupport = () => {
               </Card>
 
               {/* Resource Allocation */}
-              <Card className="glass border-border/50 p-6 animate-fade-in shadow-card">
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <Package className="h-6 w-6 text-accent mr-2" />
+              <Card className="glass border-border/50 p-4 sm:p-6 animate-fade-in shadow-card">
+                <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6 flex items-center">
+                  <Package className="h-5 w-5 sm:h-6 sm:w-6 text-accent mr-2" />
                   Resource Allocation
                 </h2>
+
 
                 <div className="space-y-4">
                   {resources.map((resource, idx) => (
@@ -194,10 +198,11 @@ const DecisionSupport = () => {
             </div>
 
             {/* Sidebar */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {/* Quick Actions */}
-              <Card className="glass border-border/50 p-6 animate-fade-in shadow-card">
-                <h3 className="text-xl font-bold text-foreground mb-4">Quick Actions</h3>
+              <Card className="glass border-border/50 p-4 sm:p-6 animate-fade-in shadow-card">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">Quick Actions</h3>
+
                 <div className="space-y-3">
                   <Button variant="hero" className="w-full justify-start">
                     <Map className="h-4 w-4 mr-2" />
@@ -219,8 +224,9 @@ const DecisionSupport = () => {
               </Card>
 
               {/* Recent Actions */}
-              <Card className="glass border-border/50 p-6 animate-fade-in shadow-card">
-                <h3 className="text-xl font-bold text-foreground mb-4">Recent Actions</h3>
+              <Card className="glass border-border/50 p-4 sm:p-6 animate-fade-in shadow-card">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">Recent Actions</h3>
+
                 <div className="space-y-4">
                   {recentActions.map((item, idx) => (
                     <div key={idx} className="pb-4 border-b border-border/30 last:border-0 last:pb-0">
